@@ -10,7 +10,6 @@ import UIKit
 protocol CarSelectDelegate {
     func didSelectCar(image: UIImage, name: String)
 }
-
 class SelectView: UIViewController {
     var selectionDelegate: CarSelectDelegate!
     var logoAudiButton = UIButton()
@@ -22,7 +21,6 @@ class SelectView: UIViewController {
         configAudiButton()
         configBugattiButton()
     }
-    
     func configAudiButton() {
         view.addSubview(logoAudiButton)
         logoAudiButton.setImage(UIImage(named: "logoAudi"), for: .normal)
@@ -40,13 +38,10 @@ class SelectView: UIViewController {
             logoAudiButton.widthAnchor.constraint(equalToConstant: 250)
         ])
     }
-    
     @objc func didTapAudiButton() {
         selectionDelegate.didSelectCar(image: UIImage(named: "audi")!, name: "Audi")
         dismiss(animated: true, completion: nil)
     }
-   
-    
     func configBugattiButton() {
         view.addSubview(logoBugattiButton)
         logoBugattiButton.setImage(UIImage(named: "logoBugatti"), for: .normal)
@@ -64,7 +59,6 @@ class SelectView: UIViewController {
             logoBugattiButton.widthAnchor.constraint(equalToConstant: 250)
         ])
     }
-    
     @objc func didTapBugattiButton() {
         selectionDelegate.didSelectCar(image: UIImage(named: "bugatti")!, name: "Bugatti")
         dismiss(animated: true, completion: nil)

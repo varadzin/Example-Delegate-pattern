@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
     var titleLabel = UILabel()
     var vehicleImage = UIImageView()
     var selectButton = UIButton()
@@ -27,7 +26,7 @@ class ViewController: UIViewController {
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: 24)
         titleLabel.textColor = .systemGreen
- 
+        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
@@ -36,7 +35,6 @@ class ViewController: UIViewController {
             titleLabel.widthAnchor.constraint(equalToConstant: 300)
         ])
     }
-    
     func configVehicleImage() {
         view.addSubview(vehicleImage)
         vehicleImage.layer.cornerRadius = 10
@@ -55,7 +53,7 @@ class ViewController: UIViewController {
         view.addSubview(selectButton)
         selectButton.layer.cornerRadius = 15
         selectButton.backgroundColor = .systemGreen
-        selectButton.setTitle("Choose you car", for: .normal)
+        selectButton.setTitle("Choose your car", for: .normal)
         selectButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
         
         selectButton.translatesAutoresizingMaskIntoConstraints = false
@@ -66,14 +64,11 @@ class ViewController: UIViewController {
             selectButton.widthAnchor.constraint(equalToConstant: 250)
         ])
     }
-    
     @objc func didTapButton() {
-       let destinationViewControler = SelectView()
+        let destinationViewControler = SelectView()
         let navigationController = UINavigationController(rootViewController: destinationViewControler)
-
         present(navigationController, animated: true)
     }
-    
 }
 
 extension ViewController: CarSelectDelegate {
